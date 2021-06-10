@@ -31,3 +31,10 @@ BetNow es un aplicativo web para una empresa de apuestas enfocadas en el futbol,
 
 ### Diagrama de Base de Datos
 ![image](https://user-images.githubusercontent.com/44925834/121531154-c7a1af80-c9c3-11eb-98a8-92f875722a61.png)
+
+### MockUps
+
+![image](https://user-images.githubusercontent.com/44925834/121554158-84513c00-c9d7-11eb-9a67-5f8510528477.png)
+
+![image](https://user-images.githubusercontent.com/44925834/121554266-a0ed7400-c9d7-11eb-9c46-70c56473452b.png)
+
