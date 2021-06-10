@@ -1,4 +1,4 @@
-# BetNow
+# BetNow :currency_exchange:
 
 ## Informacion General
 - Curso: Arquitectura de Software
