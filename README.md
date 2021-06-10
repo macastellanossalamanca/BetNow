@@ -23,8 +23,8 @@ BetNow es un aplicativo web para una empresa de apuestas enfocadas en el futbol,
 - Como Usuario quiero cerrar una apuesta para disminuir mis perdidas
 - Como Usuario quiero ver mis apuestas realizadas para evaluar mi balance global
 
-- Como administrador quiero ver todas las apuestas en la página para evaluar el transito y uso de la misma
-- Como administrador quiero ver las apuestas de un usuario para evaluar su comportamiento en la pagina
+- Como Administrador quiero ver todas las apuestas en la página para evaluar el transito y uso de la misma
+- Como Administrador quiero ver las apuestas de un usuario para evaluar su comportamiento en la pagina
 
 ### Diagrama de Clases
 ![image](https://user-images.githubusercontent.com/44925834/121528454-1863d900-c9c1-11eb-8377-e3362b6781f9.png)
