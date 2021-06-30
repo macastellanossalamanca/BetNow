@@ -1,6 +1,8 @@
 package edu.escuelaing.BetNow.Modelo;
 
-public class Evento {
+import java.io.Serializable;
+
+public class Evento implements Serializable{
 	
 	private String equipoA;
 	private String equipoB;
