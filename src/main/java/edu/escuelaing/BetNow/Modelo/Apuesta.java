@@ -2,6 +2,8 @@ package edu.escuelaing.BetNow.Modelo;
 
 import java.io.Serializable;
 
+
+
 public class Apuesta implements Serializable{
 	
 	private String equipo;

@@ -6,26 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.BetNow.Modelo.Apuesta;
+import edu.escuelaing.BetNow.Modelo.Usuario;
 import edu.escuelaing.BetNow.Persistence.DataBaseConnection;
 
 @Service("BetNow")
 public class BetNowService {
 
 	@Autowired
-    DataBaseConnection dbService;
+	DataBaseConnection dbService;
 
-	public String createUser(String nombre) {
-		
-		return null;
+	public String createUser(Usuario usuario) {
+		return dbService.insertarUsuario(usuario);
 	}
 
 	public List<Apuesta> findAll() {
-		
-		return null;
+		return dbService.buscarApuestas();
 	}
 
 	public List<Apuesta> findBetsById(String id) {
-		
-		return null;
+
+		return dbService.buscarApuestas(id);
+	}
+
+	public Usuario login(Usuario usuario) {
+		return dbService.login(usuario);
 	}
 }

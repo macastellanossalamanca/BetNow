@@ -1,19 +1,30 @@
-
 <!DOCTYPE html>
 
 <html>
 
 <head>
-<title>BetNow</title>
+	<title>BetNow</title>
+	<script src="app/app.js"></script>
+	<script src="app/app.js"></script>
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
 
-<body>
+<body onload="app.consultarApuestas()">
 	<H1 align="center">BetNow</H1>
 	<form action="" align="center">
 		<H1 align="center">BIENVENIDOS</H1>
-		
+		<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
 	</form>
+
+	<table id="apuestas">
+		<thead>
+			<tr>equipo</tr>
+			<tr>monto</tr>
+			<tr>cuota</tr>
+		</thead>
+		<tbody id="filasApuestas"></tbody>
+	</table>
 </body>
 
 </html>
-
