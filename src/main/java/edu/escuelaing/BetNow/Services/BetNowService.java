@@ -7,28 +7,18 @@ import org.springframework.stereotype.Service;
 
 import edu.escuelaing.BetNow.Modelo.Apuesta;
 import edu.escuelaing.BetNow.Modelo.Usuario;
-import edu.escuelaing.BetNow.Persistence.DataBaseConnection;
+import edu.escuelaing.BetNow.Persistence.DataBaseConection;
+
 
 @Service("BetNow")
 public class BetNowService {
 
 	@Autowired
-	DataBaseConnection dbService;
+	DataBaseConection dbService;
 
 	public String createUser(Usuario usuario) {
-		return dbService.insertarUsuario(usuario);
+		return dbService.insertarUsuario();
 	}
 
-	public List<Apuesta> findAll() {
-		return dbService.buscarApuestas();
-	}
-
-	public List<Apuesta> findBetsById(String id) {
-
-		return dbService.buscarApuestas(id);
-	}
-
-	public Usuario login(Usuario usuario) {
-		return dbService.login(usuario);
-	}
+	
 }

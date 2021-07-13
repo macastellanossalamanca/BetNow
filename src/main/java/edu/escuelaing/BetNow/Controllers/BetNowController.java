@@ -38,23 +38,23 @@ public class BetNowController {
         }
     }
 
-    @GetMapping(value = "/allBets")
-    public ResponseEntity<List<Apuesta>> findAllBets() {
-        try {
-            return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
-        } catch (Exception e) {
-            Logger.getLogger(BetNowController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @GetMapping(value = "/findBetsUser/{id}")
-    public ResponseEntity<List<Apuesta>> findUserById(@PathVariable() String id) {
-        try {
-            return new ResponseEntity<>(service.findBetsById(id), HttpStatus.OK);
-        } catch (Exception e) {
-            Logger.getLogger(BetNowController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @GetMapping(value = "/allBets")
+//    public ResponseEntity<List<Apuesta>> findAllBets() {
+//        try {
+//            return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
+//        } catch (Exception e) {
+//            Logger.getLogger(BetNowController.class.getName()).log(Level.SEVERE, null, e);
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+//
+//    @GetMapping(value = "/findBetsUser/{id}")
+//    public ResponseEntity<List<Apuesta>> findUserById(@PathVariable() String id) {
+//        try {
+//            return new ResponseEntity<>(service.findBetsById(id), HttpStatus.OK);
+//        } catch (Exception e) {
+//            Logger.getLogger(BetNowController.class.getName()).log(Level.SEVERE, null, e);
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 }
