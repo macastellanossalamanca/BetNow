@@ -11,6 +11,6 @@ import edu.escuelaing.BetNow.Modelo.Usuario;
 
 public interface UserRepository extends MongoRepository<Usuario, String> {
 
-	  public Usuario findByFirstName(String firstName);
+	 
 	  
 }

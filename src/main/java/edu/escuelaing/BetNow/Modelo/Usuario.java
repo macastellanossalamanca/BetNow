@@ -4,34 +4,34 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 
+@Document("Usuario")
 public class Usuario implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
-
+	@Field(name="nombre")
 	private String nombre;
-	
 	@Id
 	private String id;
+	@Field(name="correo")
+	@Indexed(unique = true)
 	private String correo;
-	private String psw;
+	@Field(name="credito")
 	private Double credito;
-	private ArrayList<Apuesta> apuestas;
 
-	public Usuario() {
-		apuestas = new ArrayList<Apuesta>();
-	}
+
 
 	public Usuario(String nombre,  String correo) {
 		this.nombre = nombre;
-		this.id = UUID.randomUUID().toString();;
+		this.id = UUID.randomUUID().toString();
 		this.correo = correo;
-		this.psw = "psw";
 		this.credito = (double) 50000;
-		this.apuestas = new ArrayList<Apuesta>();
 	}
 
 	public String getNombre() {
@@ -46,10 +46,6 @@ public class Usuario implements Serializable {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public Double getCredito() {
 		return credito;
 	}
@@ -58,28 +54,12 @@ public class Usuario implements Serializable {
 		this.credito = credito;
 	}
 
-	public ArrayList<Apuesta> getApuestas() {
-		return this.apuestas;
-	}
-
-	public void setApuestas(ArrayList<Apuesta> apuestas) {
-		this.apuestas = apuestas;
-	}
-
 	public String getCorreo() {
 		return this.correo;
 	}
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
-	}
-
-	public String getPsw() {
-		return this.psw;
-	}
-
-	public void setPsw(String psw) {
-		this.psw = psw;
 	}
 
 }
