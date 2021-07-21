@@ -1,10 +1,14 @@
 package edu.escuelaing.BetNow.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,26 +31,42 @@ public class BetNowController {
     }
     
     @PostMapping("createUser")
-    public ResponseEntity createUser(@RequestBody Usuario user) {
+    public ResponseEntity<?> createUser(@RequestBody Usuario user) {
     	service.createUser(user);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
     @PostMapping("createEvent")
-    public ResponseEntity createEvent(@RequestBody Evento event) {
+    public ResponseEntity<?> createEvent(@RequestBody Evento event) {
     	service.createEvent(event);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
     @PostMapping("makeBet")
-    public ResponseEntity makeBet(@RequestBody Apuesta bet) {
+    public ResponseEntity<?> makeBet(@RequestBody Apuesta bet) {
     	service.addBet(bet);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
     @GetMapping("allBets")
-    public ResponseEntity getAllBets() {
+    public ResponseEntity<List> getAllBets() {
     	return ResponseEntity.ok(service.getAllBets());
+    }
+    
+    @GetMapping("allBetsByEvent")
+    public ResponseEntity<List> getAllBetsByEvent(@RequestBody Evento event) {
+    	return ResponseEntity.ok(service.getAllBetsByEvent(event));
+    }
+    
+    @GetMapping("allBetsByUser")
+    public ResponseEntity<List> getAllBetsByUser(@RequestBody Usuario user) {
+    	return ResponseEntity.ok(service.getAllBetsByUser(user));
+    }
+    
+    @PutMapping("endEvent")
+    public ResponseEntity<?> finalizarEvento(@RequestBody Evento event) {
+    	service.endEvent(event);
+    	return ResponseEntity.ok().build();
     }
     
     
