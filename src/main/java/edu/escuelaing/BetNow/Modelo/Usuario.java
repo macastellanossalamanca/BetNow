@@ -20,12 +20,23 @@ public class Usuario implements Serializable {
 	@Id
 	private String id;
 	@Field(name="correo")
-	@Indexed(unique = true)
 	private String correo;
+	@Field(name="password")
+	private String password;
 	@Field(name="credito")
 	private Double credito;
+	@Field(name="tipo")
+	private String tipo;
 
 
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
 
 	public Usuario(String nombre,  String correo) {
 		this.nombre = nombre;
@@ -60,6 +71,14 @@ public class Usuario implements Serializable {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

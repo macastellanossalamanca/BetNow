@@ -12,6 +12,7 @@ import edu.escuelaing.BetNow.Modelo.Apuesta;
 public interface BetRepository extends MongoRepository<Apuesta, String>{
 
 	
-	public Optional<List<Apuesta>> findAllByevento();
-	public Optional<List<Apuesta>> findAllByusuario();
+	public Optional<List<Apuesta>> findAllByusuarioId(String userId);
+
+	public List<Apuesta> findAllByevento(String eventId);
 }

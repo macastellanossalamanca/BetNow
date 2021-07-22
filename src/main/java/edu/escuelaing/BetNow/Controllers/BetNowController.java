@@ -24,46 +24,53 @@ public class BetNowController {
 
     @Autowired
     private BetNowService service;
-
-    @GetMapping("/inicio")
-    public String inicio() {
-        return "Esto es BetNow";
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Usuario user) {
+    	return ResponseEntity.ok(service.login(user));
     }
     
-    @PostMapping("createUser")
+    @PostMapping("/createUser")
     public ResponseEntity<?> createUser(@RequestBody Usuario user) {
     	service.createUser(user);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
-    @PostMapping("createEvent")
+    
+    @PostMapping("/createEvent")
     public ResponseEntity<?> createEvent(@RequestBody Evento event) {
     	service.createEvent(event);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
-    @PostMapping("makeBet")
+    @PostMapping("/makeBet")
     public ResponseEntity<?> makeBet(@RequestBody Apuesta bet) {
     	service.addBet(bet);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
-    @GetMapping("allBets")
+    @GetMapping("/allBets")
     public ResponseEntity<List> getAllBets() {
     	return ResponseEntity.ok(service.getAllBets());
     }
     
-    @GetMapping("allBetsByEvent")
-    public ResponseEntity<List> getAllBetsByEvent(@RequestBody Evento event) {
-    	return ResponseEntity.ok(service.getAllBetsByEvent(event));
+    @GetMapping("/allEvents")
+    public ResponseEntity<List> getAllEvents() {
+    	return ResponseEntity.ok(service.getAllEvents());
     }
     
-    @GetMapping("allBetsByUser")
+    @GetMapping("/userById/{id}")
+    public ResponseEntity<Usuario> getUserById(@PathVariable String id) {
+    	return ResponseEntity.ok(service.getUserById(id));
+    }
+    
+    
+    @PostMapping("/allBetsByUser")
     public ResponseEntity<List> getAllBetsByUser(@RequestBody Usuario user) {
     	return ResponseEntity.ok(service.getAllBetsByUser(user));
     }
     
-    @PutMapping("endEvent")
+    @PutMapping("/endEvent")
     public ResponseEntity<?> finalizarEvento(@RequestBody Evento event) {
     	service.endEvent(event);
     	return ResponseEntity.ok().build();

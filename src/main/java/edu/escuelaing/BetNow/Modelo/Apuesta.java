@@ -10,16 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("Apuesta")
 public class Apuesta implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private String id;
-	@Field(name="usuario")
-	private Usuario usuario;
+	@Field(name="usuarioId")
+	private String usuarioId;
 	@Field(name="equipo")
 	private String equipo;
 	@Field(name="monto")
@@ -27,20 +24,29 @@ public class Apuesta implements Serializable{
 	@Field(name="cuota")
 	private double cuota;
 	@Field(name="evento")
-	private Evento evento;
+	private String evento;
+	@Field(name="estado")
+	private String estado;
 	
 	
-	public Apuesta(String equipo, double monto, double cuota, Evento evento) {
+	@Override
+	public String toString() {
+		return "Apuesta [id=" + id + ", usuarioId=" + usuarioId + ", equipo=" + equipo + ", monto=" + monto + ", cuota="
+				+ cuota + ", evento=" + evento + ", estado=" + estado + "]";
+	}
+	public Apuesta(String equipo, double monto, double cuota, String evento, String estado) {
+		
 		this.id = UUID.randomUUID().toString();
 		this.equipo = equipo;
 		this.monto = monto;
 		this.cuota = cuota;
 		this.evento = evento;
+		this.estado = estado;
 	}
-	public Evento getEvento() {
+	public String getEvento() {
 		return evento;
 	}
-	public void setEvento(Evento evento) {
+	public void setEvento(String evento) {
 		this.evento = evento;
 	}
 	public String getEquipo() {
@@ -64,4 +70,17 @@ public class Apuesta implements Serializable{
 	public String getId() {
 		return id;
 	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(String usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 }
+
