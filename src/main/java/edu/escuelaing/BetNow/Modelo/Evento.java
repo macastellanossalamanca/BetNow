@@ -23,6 +23,10 @@ public class Evento implements Serializable {
 	private Double cuotaB;
 	@Field(name = "ganador")
 	private String ganador;
+	
+	public Evento(){
+		
+	}
 
 	public Evento(String equipoA, String equipoB, Double cuotaA, Double cuotaB, String ganador) {
 

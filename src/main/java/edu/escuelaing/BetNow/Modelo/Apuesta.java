@@ -28,7 +28,9 @@ public class Apuesta implements Serializable{
 	@Field(name="estado")
 	private String estado;
 	
-	
+	public Apuesta() {
+		
+	}
 	@Override
 	public String toString() {
 		return "Apuesta [id=" + id + ", usuarioId=" + usuarioId + ", equipo=" + equipo + ", monto=" + monto + ", cuota="

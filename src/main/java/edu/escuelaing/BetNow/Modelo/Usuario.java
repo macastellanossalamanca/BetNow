@@ -34,6 +34,10 @@ public class Usuario implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public Usuario() {
+		
+	}
+
 	public String getTipo() {
 		return tipo;
 	}
